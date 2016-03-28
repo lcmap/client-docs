@@ -111,7 +111,7 @@ Even while the greater LCMAP systm is under development, we are creating client 
 
 ```shell
 curl -s -X POST \
-  -H "Accept: application/vnd.usgs.lcmap.v0.0+json" \
+  -H "Accept: application/vnd.usgs.lcmap.v0.5+json" \
   -d "username=`cat ~/.usgs/username`" \
   -d "password=`cat ~/.usgs/password`" \
   http://localhost:1077/api/auth/login | \
@@ -125,7 +125,7 @@ curl -s -X POST \
 
 ```shell
 curl -s -X POST \
-  -H "Accept: application/vnd.usgs.lcmap.v0.0+json" \
+  -H "Accept: application/vnd.usgs.lcmap.v0.5+json" \
   -H "X-AuthToken: 3efc6475b5034309af00549a77b7a6e3" \
   'http://localhost:1077/api/L3/sample/model?seconds=15&year=2016'
 ```
