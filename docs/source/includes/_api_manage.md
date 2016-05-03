@@ -1021,9 +1021,23 @@ The status API functions are provided as a compatibility "layer" for metrics and
 
 ## Reference
 
+> To see all the available references:
 
 ```shell
-TBD
+$ curl -s -X GET \
+  -H "$LCMAP_VERSION_HDR" \
+  -H "$LCMAP_TOKEN_HDR" \
+  "${LCMAP_ENDPOINT}/api/system/reference" | \
+  jq .body.result
+
+{
+  "links": [
+    "/api/system/reference/error-types",
+    "/api/system/reference/error-type/:id",
+    "/api/system/reference/errors",
+    "/api/system/reference/error/:id"
+  ]
+}
 ```
 
 ```python
@@ -1041,11 +1055,58 @@ TBD
 ```ruby
 TBD
 ```
+
+The LCMAP management API also supports querying system-level refernce data.
+
 
 ### Error Types
 
+> To see the list of supported error types:
+
 ```shell
-TBD
+$ curl -s -X GET \
+  -H "$LCMAP_VERSION_HDR" \
+  -H "$LCMAP_TOKEN_HDR" \
+  "${LCMAP_ENDPOINT}/api/system/reference/error-types" | \
+  jq .body.result
+
+{
+  "gen": {
+    "uri": "",
+    "title": "",
+    "description": ""
+  },
+  "auth": {
+    "uri": "",
+    "title": "",
+    "description": ""
+  },
+  "data": {
+    "uri": "",
+    "title": "",
+    "description": ""
+  },
+  "model": {
+    "uri": "",
+    "title": "",
+    "description": ""
+  },
+  "event": {
+    "uri": "",
+    "title": "",
+    "description": ""
+  },
+  "user": {
+    "uri": "",
+    "title": "",
+    "description": ""
+  },
+  "system": {
+    "uri": "",
+    "title": "",
+    "description": ""
+  }
+}
 ```
 
 ```python
@@ -1063,11 +1124,203 @@ TBD
 ```ruby
 TBD
 ```
+
+> It is also possible to query data on an individual error type:
+
+```shell
+$ curl -s -X GET \
+  -H "$LCMAP_VERSION_HDR" \
+  -H "$LCMAP_TOKEN_HDR" \
+  "${LCMAP_ENDPOINT}/api/system/reference/error-type/auth" | \
+  jq .body.result
+
+{
+  "uri": "",
+  "title": "",
+  "description": ""
+}
+```
+
+```python
+TBD
+```
+
+```vb
+TBD
+```
+
+```clojure
+TBD
+```
+
+```ruby
+TBD
+```
+
+<aside class="danger">
+  This area of the API is under active development: it is incomplete and subject to change!
+</aside>
 
 ### Error Lookup
 
+> To see the list of supported errors:
+
 ```shell
-TBD
+$ curl -s -X GET \
+  -H "$LCMAP_VERSION_HDR" \
+  -H "$LCMAP_TOKEN_HDR" \
+  "${LCMAP_ENDPOINT}/api/system/reference/errors" | \
+  jq .body.result
+
+{
+  "60001": {
+    "title": "",
+    "category": "user",
+    "type": "",
+    "detail": "",
+    "instance": "<URL at error>"
+  },
+  "10000": {
+    "title": "Invalid input data type",
+    "category": "gen",
+    "type": "",
+    "detail": "",
+    "instance": "<URL at error>"
+  },
+  "50000": {
+    "title": "",
+    "category": "event",
+    "type": "",
+    "detail": "",
+    "instance": "<URL at error>"
+  },
+  "20404": {
+    "title": "Authentication resource not found",
+    "category": "auth",
+    "type": "",
+    "detail": "",
+    "instance": "<URL at error>"
+  },
+  "50001": {
+    "title": "",
+    "category": "event",
+    "type": "",
+    "detail": "",
+    "instance": "<URL at error>"
+  },
+  "40002": {
+    "title": "",
+    "category": "model",
+    "type": "",
+    "detail": "",
+    "instance": "<URL at error>"
+  },
+  "40000": {
+    "title": "",
+    "category": "model",
+    "type": "",
+    "detail": "",
+    "instance": "<URL at error>"
+  },
+  "40001": {
+    "title": "",
+    "category": "model",
+    "type": "",
+    "detail": "",
+    "instance": "<URL at error>"
+  },
+  "20500": {
+    "title": "Authentication server error",
+    "category": "auth",
+    "type": "",
+    "detail": "",
+    "instance": "<URL at error>"
+  },
+  "70002": {
+    "title": "",
+    "category": "system",
+    "type": "",
+    "detail": "",
+    "instance": "<URL at error>"
+  },
+  "70001": {
+    "title": "",
+    "category": "system",
+    "type": "",
+    "detail": "",
+    "instance": "<URL at error>"
+  },
+  "10002": {
+    "title": "",
+    "category": "gen",
+    "type": "",
+    "detail": "",
+    "instance": "<URL at error>"
+  },
+  "70000": {
+    "title": "",
+    "category": "system",
+    "type": "",
+    "detail": "",
+    "instance": "<URL at error>"
+  },
+  "30001": {
+    "title": "",
+    "category": "data",
+    "type": "",
+    "detail": "",
+    "instance": "<URL at error>"
+  },
+  "30002": {
+    "title": "",
+    "category": "data",
+    "type": "",
+    "detail": "",
+    "instance": "<URL at error>"
+  },
+  "10001": {
+    "title": "",
+    "category": "gen",
+    "type": "",
+    "detail": "",
+    "instance": "<URL at error>"
+  },
+  "60000": {
+    "title": "",
+    "category": "user",
+    "type": "",
+    "detail": "",
+    "instance": "<URL at error>"
+  },
+  "60002": {
+    "title": "",
+    "category": "user",
+    "type": "",
+    "detail": "",
+    "instance": "<URL at error>"
+  },
+  "20400": {
+    "title": "Bad username or password",
+    "category": "auth",
+    "type": "",
+    "detail": "",
+    "instance": "<URL at error>"
+  },
+  "50002": {
+    "title": "",
+    "category": "event",
+    "type": "",
+    "detail": "",
+    "instance": "<URL at error>"
+  },
+  "30000": {
+    "title": "",
+    "category": "data",
+    "type": "",
+    "detail": "",
+    "instance": "<URL at error>"
+  }
+}
 ```
 
 ```python
@@ -1085,6 +1338,45 @@ TBD
 ```ruby
 TBD
 ```
+
+> It is also possible to query data on an individual error:
+
+```shell
+$ curl -s -X GET \
+  -H "$LCMAP_VERSION_HDR" \
+  -H "$LCMAP_TOKEN_HDR" \
+  "${LCMAP_ENDPOINT}/api/system/reference/error/10000" | \
+  jq .body.result
+
+{
+  "title": "Invalid input data type",
+  "category": "gen",
+  "type": "",
+  "detail": "",
+  "instance": "<URL at error>"
+}
+```
+
+```python
+TBD
+```
+
+```vb
+TBD
+```
+
+```clojure
+TBD
+```
+
+```ruby
+TBD
+```
+
+<aside class="danger">
+  This area of the API is under active development: it is incomplete and subject to change!
+</aside>
+
 
 ## Permissions
 
