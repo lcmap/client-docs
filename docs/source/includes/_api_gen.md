@@ -272,7 +272,11 @@ This section of the the API is under a great deal of develpoment! Expect radical
 > In the following command the user supplies a string value for ``delay`` when they should have given an integer:
 
 ```shell
-curl -v -X POST -H "$LCMAP_VERSION_HDR" -H "$LCMAP_TOKEN_HDR" -d "delay=a" -d "year=2017" "${LCMAP_ENDPOINT}/api/models/sample/os-process"
+curl -v -X POST \
+  -H "$LCMAP_VERSION_HDR" \
+  -H "$LCMAP_TOKEN_HDR" \
+  -d "delay=a" -d "year=2017" \
+  "${LCMAP_ENDPOINT}/api/models/sample/os-process"
 ```
 
 ```python
