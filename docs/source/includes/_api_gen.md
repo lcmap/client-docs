@@ -260,3 +260,69 @@ The following user data is made available by the LCMAP clients:
 To parse the JSON results from cURL via the command line, the <code>jq</code>  utility is being used. See the <a href="https://stedolan.github.io/jq/">jq site</a> for more details.
 </aside>
 
+
+## Handling Errors
+
+<aside class="danger">
+This section of the the API is under a great deal of develpoment! Expect radical changes, man!
+</aside>
+
+### Data Validation Errors
+
+> In the following command the user supplies a string value for ``delay`` when they should have given an integer:
+
+```shell
+curl -v -X POST -H "$LCMAP_VERSION_HDR" -H "$LCMAP_TOKEN_HDR" -d "delay=a" -d "year=2017" "${LCMAP_ENDPOINT}/api/models/sample/os-process"
+```
+
+```python
+TBD
+```
+
+```vb
+TBD
+```
+
+```clojure
+TBD
+```
+
+```ruby
+TBD
+```
+
+> Which results in the following response being returned to the user:
+
+```shell
+{
+  "status": 400,
+  "headers": {
+    "Content-Type": "application/problem+:json"
+  },
+  "body": {
+    "result": null,
+    "errors": [
+      "Input to run-typed-model does not match schema:
+      [nil nil (named (not (lcmap.rest.types/string-int? \"a\")) seconds) nil]"
+    ]
+  }
+}
+```
+
+```python
+TBD
+```
+
+```vb
+TBD
+```
+
+```clojure
+TBD
+```
+
+```ruby
+TBD
+```
+
+User-supplied data is validated against expected data types in the API. If users supply unexpected data types for a given argument, they will receive an error indicating this.
