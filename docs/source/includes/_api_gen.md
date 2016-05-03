@@ -4,8 +4,8 @@
 
 
 ```shell
-LCMAP_ENDPOINT=http://localhost:1077
-LCMAP_VERSION_HDR="Accept: application/vnd.usgs.lcmap.v0.5+json"
+$ LCMAP_ENDPOINT=http://localhost:1077
+$ LCMAP_VERSION_HDR="Accept: application/vnd.usgs.lcmap.v0.5+json"
 ```
 
 ```python
@@ -56,7 +56,7 @@ The degree to which client libraries perform an initialization setp varies from 
 > Manual authentication will return user data:
 
 ```shell
-LCMAP_USER_DATA=$(curl -s -X POST -H "$LCMAP_VERSION_HDR" \
+$ LCMAP_USER_DATA=$(curl -s -X POST -H "$LCMAP_VERSION_HDR" \
   -d "username=`cat ~/.usgs/username`" \
   -d "password=`cat ~/.usgs/password`" \
   $LCMAP_ENDPOINT/api/auth/login)
@@ -111,8 +111,8 @@ Remember, to authenticate against the LCMAP service you will need to have regist
 > Get the token value:
 
 ```shell
-LCMAP_TOKEN=$(echo $LCMAP_USER_DATA | \
-  jq -r '.result.token')
+$ LCMAP_TOKEN=$(echo $LCMAP_USER_DATA | \
+  jq -r '.body.result.token')
 echo $LCMAP_TOKEN
 3efc6475b5034309af00549a77b7a6e3
 
@@ -143,8 +143,8 @@ TBD
 > Get the username value:
 
 ```shell
-echo $LCMAP_USER_DATA | \
-  jq -r '.result.username'
+$ echo $LCMAP_USER_DATA | \
+  jq -r '.body.result.username'
 alice
 ```
 
@@ -169,8 +169,8 @@ TBD
 > Get the roles:
 
 ```shell
-echo $LCMAP_USER_DATA | \
-  jq -r '.result.roles'
+$ echo $LCMAP_USER_DATA | \
+  jq -r '.body.result.roles'
 [
   "RPUBLIC",
   "LANDSAT8CUST"
@@ -198,8 +198,8 @@ TBD
 > Get the primary email address:
 
 ```shell
-echo $LCMAP_USER_DATA | \
-  jq -r '.result.email'
+$ echo $LCMAP_USER_DATA | \
+  jq -r '.body.result.email'
 alice@usgs.gov
 ```
 
@@ -224,8 +224,8 @@ TBD
 > Get the user-id value:
 
 ```shell
-echo $LCMAP_USER_DATA | \
-  jq -r '.result."user-id"'
+$ echo $LCMAP_USER_DATA | \
+  jq -r '.body.result."user-id"'
 001010111
 ```
 
@@ -272,7 +272,7 @@ This section of the the API is under a great deal of develpoment! Expect radical
 > In the following command the user supplies a string value for ``delay`` when they should have given an integer:
 
 ```shell
-curl -v -X POST \
+$ curl -v -X POST \
   -H "$LCMAP_VERSION_HDR" \
   -H "$LCMAP_TOKEN_HDR" \
   -d "delay=a" -d "year=2017" \
@@ -301,7 +301,7 @@ TBD
 {
   "status": 400,
   "headers": {
-    "Content-Type": "application/problem+:json"
+    "Content-Type": "application/problem+json"
   },
   "body": {
     "result": null,
