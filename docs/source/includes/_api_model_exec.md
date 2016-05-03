@@ -37,7 +37,7 @@ $ RESULT_PATH=$(curl -s -X POST \
     -H "$LCMAP_VERSION_HDR" -H "$LCMAP_TOKEN_HDR" \
     -d "delay=120" -d "year=2017" \
     "${LCMAP_ENDPOINT}/api/models/sample/os-process" | \
-    jq -r '.result.link.href')
+    jq -r '.body.result.link.href')
 $ echo $RESULT_PATH
 /api/jobs/sample/os-process/6d65033bb2007959174dd284ea8070f4
 ```
@@ -71,11 +71,12 @@ TBD
 
 ```shell
 $ curl -v -H "$LCMAP_VERSION_HDR" -H "$LCMAP_TOKEN_HDR" \
-    "${LCMAP_ENDPOINT}${RESULT_PATH}"
+    "${LCMAP_ENDPOINT}${RESULT_PATH}" \
+    jq .body.result
 ...
 < HTTP/1.1 202 Accepted
 ...
-{"result":"pending"}
+"pending"
 ```
 
 ```python
@@ -148,7 +149,7 @@ Note that subsequent calls with the same parameters will return immediately, sin
 $ RESULT_PATH=$(curl -s -X POST \
     -H "$LCMAP_VERSION_HDR" -H "$LCMAP_TOKEN_HDR" \
     "${LCMAP_ENDPOINT}/api/models/sample/piped-processes" | \
-    jq -r '.result.link.href')
+    jq -r '.body.result.link.href')
 $ echo $RESULT_PATH
 /api/jobs/sample/piped-processes/5d45974eabb4ff1060f6278555d99375
 ```
@@ -180,7 +181,7 @@ $ RESULT_PATH=$(curl -s -X POST \
     -H "$LCMAP_VERSION_HDR" -H "$LCMAP_TOKEN_HDR" \
     -d "number=true" -d "count=true" -d "words=true"\
     "${LCMAP_ENDPOINT}/api/models/sample/piped-processes" | \
-    jq -r '.result.link.href')
+    jq -r '.body.result.link.href')
 $ echo $RESULT_PATH
 /api/jobs/sample/piped-processes/5d45974eabb4ff1060f6278555d99375
 ```
@@ -210,11 +211,12 @@ TBD
 
 ```shell
 $ curl -v -H "$LCMAP_VERSION_HDR" -H "$LCMAP_TOKEN_HDR" \
-    "${LCMAP_ENDPOINT}${RESULT_PATH}"
+    "${LCMAP_ENDPOINT}${RESULT_PATH}" \
+    jq .body.result
 ...
 < HTTP/1.1 200 OK
 ...
-{"result":"47\n","errors":[],"status":200}}
+"47\n"
 ```
 
 ```python
@@ -256,7 +258,7 @@ $ RESULT_PATH=$(curl -s -X POST \
     -d "docker-tag=usgs-lcmap/debian-docker-sample-process" \
     -d "year=2017" \
     "${LCMAP_ENDPOINT}/api/models/sample/docker-process" | \
-    jq -r '.result.link.href')
+    jq -r '.body.result.link.href')
 $ echo $RESULT_PATH
 /api/jobs/sample/os-process/439ae2866a39bb5cbbe934583bfef114
 ```
@@ -287,12 +289,12 @@ TBD
 
 ```shell
 $ curl -v -H "$LCMAP_VERSION_HDR" -H "$LCMAP_TOKEN_HDR" \
-    "${LCMAP_ENDPOINT}${RESULT_PATH}"
+    "${LCMAP_ENDPOINT}${RESULT_PATH}" \
+    jq .body.result
 ...
 < HTTP/1.1 200 OK
 ...
-{"result":"                             2017\n\n
-  ...}
+"                             2017\n ..."
 ```
 
 ```python
