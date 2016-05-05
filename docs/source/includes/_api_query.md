@@ -25,7 +25,7 @@ client = Client()
 ubid = "LANDSAT_8/OLI_TIRS/sr_band1"
 x, y = -1850865, 2956785
 t1, t2 = '2013-01-01', '2015-01-01'
-spec, tiles = client.data.surface_reflectance.tiles(ubid, x, y, t1, t2)
+spec, tiles = client.data.tiles(ubid, x, y, t1, t2)
 ```
 
 ```shell
@@ -35,7 +35,7 @@ TIME='2013-01-01/2015-01-01'
 TILES=$(curl -s \
   -H "$LCMAP_ACCEPT_HDR" \
   -H "$LCMAP_TOKEN_HDR" \
-  "http://localhost:1077/api/data/surface-reflectance/tiles?band=$BAND&point=$POINT&time=$TIME")
+  "http://localhost:1077/api/data/tiles?band=$BAND&point=$POINT&time=$TIME")
 ```
 
 ```vb
@@ -66,7 +66,8 @@ To retrieve tiles, specify a point in projection coordinate system, the univeral
 ### Future Improvements
 
 * Provide a list of available bands of data and support queries by mission, sensor, and spectral band name.
-* Provide data from a variety of spatial areas (CONUS, Hawaii, and others) in area-specific projection systems.
+* Provide scene metadata as a separate resource.
+* Provide data from a variety of spatial areas (CONUS, Hawaii, and others) in area-specific projection coordinate systems.
 * Provide paginated results.
 
 ## CCDC
