@@ -27,9 +27,10 @@ Ruby Status: NOT STARTED
 
 We plan to provide the following client libraries for LCMAP:
 
-* Python <span class="status-in-progress">[IN PROGRESS]</span>
+* [Python](https://github.com/USGS-EROS/lcmap-client-py) <span class="status-in-progress">[IN PROGRESS]</span>
+* [Clojure](https://github.com/USGS-EROS/lcmap-client-clj) <span class="status-in-progress">[IN PROGRESS]</span>
+* [R](https://github.com/USGS-EROS/lcmap-client-r) <span class="status-initial-stages">[INITIAL STAGES]</span>
 * Julia <span class="status-initial-stages">[INITIAL STAGES]</span>
-* Clojure <span class="status-in-progress">[IN PROGRESS]</span>
 * Ruby <span class="status-not-started">[NOT STARTED]</span>
 
 
