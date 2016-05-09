@@ -21,6 +21,10 @@ Julia Status: INITIAL STAGES
 Clojure Status: IN PROGRESS
 ```
 
+```r
+R: INITIAL STAGES
+```
+
 ```ruby
 Ruby Status: NOT STARTED
 ```
@@ -53,6 +57,11 @@ sudo apt-get install curl
 ```python
 # Until the LCMAP Python client library is released in PyPI, use git:
 git clone git@github.com:USGS-EROS/lcmap-client-py.git
+```
+
+```r
+# Until the R client library is released on CRAN, use git:
+git clone git@github.com:USGS-EROS/lcmap-client-r.git
 ```
 
 ```vb
