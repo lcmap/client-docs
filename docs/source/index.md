@@ -4,8 +4,9 @@ title: LCMAP @ USGS EROS - Client Library Documentation
 language_tabs:
   - shell: cURL
   - python: Python
-  - vb: Julia
   - clojure: Clojure
+  - r: R
+  - vb: Julia
   - ruby: Ruby
 
 toc_footers:
