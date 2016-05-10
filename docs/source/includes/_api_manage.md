@@ -38,6 +38,10 @@ TBD
 TBD
 ```
 
+```r
+TBD
+```
+
 In the following sections we will demonstrate the various management-level API calls available to users with appropriate levels of permissions. To see which management resources are available to a given user, see the example to the right.
 
 
@@ -156,6 +160,10 @@ TBD
 TBD
 ```
 
+```r
+TBD
+```
+
 > Get a listing of the names for all counter-style matrics:
 
 ```shell
@@ -183,6 +191,10 @@ TBD
 ```
 
 ```ruby
+TBD
+```
+
+```r
 TBD
 ```
 
@@ -272,6 +284,10 @@ TBD
 TBD
 ```
 
+```r
+TBD
+```
+
 > Get a listing of the names for all meter-style matrics:
 
 ```shell
@@ -318,6 +334,10 @@ TBD
 TBD
 ```
 
+```r
+TBD
+```
+
 > Get a listing of the names for all timer-style matrics:
 
 ```shell
@@ -353,6 +373,10 @@ TBD
 ```
 
 ```ruby
+TBD
+```
+
+```r
 TBD
 ```
 
@@ -950,6 +974,10 @@ TBD
 TBD
 ```
 
+```r
+TBD
+```
+
 The various systems metrics API functions are demonstrated to the right.
 
 
@@ -985,6 +1013,10 @@ TBD
 TBD
 ```
 
+```r
+TBD
+```
+
 > Get the system status in the format expected by JMeter (Tomcat-compatible):
 
 ```shell
@@ -1014,6 +1046,10 @@ TBD
 ```
 
 ```ruby
+TBD
+```
+
+```r
 TBD
 ```
 
@@ -1053,6 +1089,10 @@ TBD
 ```
 
 ```ruby
+TBD
+```
+
+```r
 TBD
 ```
 
@@ -1125,6 +1165,10 @@ TBD
 TBD
 ```
 
+```r
+TBD
+```
+
 > It is also possible to query data on an individual error type:
 
 ```shell
@@ -1154,6 +1198,10 @@ TBD
 ```
 
 ```ruby
+TBD
+```
+
+```r
 TBD
 ```
 
@@ -1339,6 +1387,10 @@ TBD
 TBD
 ```
 
+```r
+TBD
+```
+
 > It is also possible to query data on an individual error:
 
 ```shell
@@ -1373,6 +1425,10 @@ TBD
 TBD
 ```
 
+```r
+TBD
+```
+
 <aside class="danger">
   This area of the API is under active development: it is incomplete and subject to change!
 </aside>
@@ -1400,6 +1456,10 @@ TBD
 TBD
 ```
 
+```r
+TBD
+```
+
 ## Roles
 
 ```shell
@@ -1422,6 +1482,10 @@ TBD
 TBD
 ```
 
+```r
+TBD
+```
+
 ## Users
 
 ```shell
@@ -1441,5 +1505,9 @@ TBD
 ```
 
 ```ruby
+TBD
+```
+
+```r
 TBD
 ```

@@ -48,6 +48,10 @@ TBD
 TBD
 ```
 
+```r
+TBD
+```
+
 The degree to which client libraries perform an initialization setp varies from language to language. cURL, by virtue of it being a command line utility, is pretty open-ended; we use ``ENV`` variables to "initialize" it. While functional programming languages like Clojure don't typically have the concept of objects, specialized data structures are used, and these need to be set up ahead of time. Client libraries for object-oriented languages such as Python and Ruby do typical object instantiation during this step.
 
 
@@ -99,6 +103,10 @@ TBD
 TBD
 ```
 
+```r
+TBD
+```
+
 In LCMAP, the process of authentication (for most clients, this is done automatically), returns metadata for the authenticated user. This includes such data as an API token, a user id, a username, the primary email address for the ERS account, and the roles the user has been granted via ERS and LCMAP.
 
 <aside class="info">
@@ -140,6 +148,10 @@ TBD
 TBD
 ```
 
+```r
+TBD
+```
+
 > Get the username value:
 
 ```shell
@@ -163,6 +175,10 @@ TBD
 ```
 
 ```ruby
+TBD
+```
+
+```r
 TBD
 ```
 
@@ -195,6 +211,10 @@ TBD
 TBD
 ```
 
+```r
+TBD
+```
+
 > Get the primary email address:
 
 ```shell
@@ -221,6 +241,10 @@ TBD
 TBD
 ```
 
+```r
+TBD
+```
+
 > Get the user-id value:
 
 ```shell
@@ -244,6 +268,10 @@ TBD
 ```
 
 ```ruby
+TBD
+```
+
+```r
 TBD
 ```
 
@@ -295,6 +323,10 @@ TBD
 TBD
 ```
 
+```r
+TBD
+```
+
 > Which results in the following response being returned to the user:
 
 ```shell
@@ -326,6 +358,10 @@ TBD
 ```
 
 ```ruby
+TBD
+```
+
+```r
 TBD
 ```
 

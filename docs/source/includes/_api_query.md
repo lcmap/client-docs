@@ -50,6 +50,10 @@ TBD
 TBD
 ```
 
+```r
+TBD
+```
+
 The API provides a list of uniformly shaped tiles for each spectral band of Landsat 5, 7, 8 and a tile specification.
 
 Client libraries use the tile specification to transform response data into runtime environment specific data structures. For example, the Python client converts tiles into Numpy arrays.

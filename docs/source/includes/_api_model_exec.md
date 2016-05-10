@@ -104,6 +104,10 @@ TBD
 TBD
 ```
 
+```r
+TBD
+```
+
 > After the job has finished, ``GET``ing the result resource will return actual data:
 
 ```shell
@@ -132,6 +136,10 @@ TBD
 ```
 
 ```ruby
+TBD
+```
+
+```r
 TBD
 ```
 
@@ -174,6 +182,10 @@ TBD
 TBD
 ```
 
+```r
+TBD
+```
+
 > You can also pass parameters:
 
 ```shell
@@ -207,6 +219,10 @@ TBD
 TBD
 ```
 
+```r
+TBD
+```
+
 > After the job has finished you can extract the data from the result:
 
 ```shell
@@ -233,6 +249,10 @@ TBD
 ```
 
 ```ruby
+TBD
+```
+
+```r
 TBD
 ```
 
@@ -284,6 +304,9 @@ TBD
 TBD
 ```
 
+```r
+TBD
+```
 
 > After the job has finished you can extract the data from the result:
 
@@ -311,6 +334,10 @@ TBD
 ```
 
 ```ruby
+TBD
+```
+
+```r
 TBD
 ```
 
@@ -382,6 +409,10 @@ TBD
 TBD
 ```
 
+```r
+TBD
+```
+
 
 This sample model executes a Mesos framework which has been tuned to parallelize on both the science model parameters and the required queries to the data warehouse. It is this combination of factors which are used to split work across a configurable number of nodes. Results are combined in the final step of model execution.
 
@@ -428,6 +459,10 @@ TBD
 ```
 
 ```ruby
+TBD
+```
+
+```r
 TBD
 ```
 
