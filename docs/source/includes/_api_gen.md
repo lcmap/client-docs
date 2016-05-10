@@ -356,7 +356,7 @@ TBD
 ```clojure
 {:result nil
  :errors ["Input to run-typed-model does not match schema:
-          [nil nil (named (not (lcmap.rest.types/string-int? \":a\"))
+          [nil nil (named (not (lcmap.rest.types/string-int? \"a\"))
           seconds) nil]"]}
 
 ```
