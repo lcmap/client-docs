@@ -316,7 +316,7 @@ TBD
 ```
 
 ```clojure
-TBD
+=> (sample-model/run client :year 2017 :delay "a")
 ```
 
 ```ruby
@@ -354,7 +354,11 @@ TBD
 ```
 
 ```clojure
-TBD
+{:result nil
+ :errors ["Input to run-typed-model does not match schema:
+          [nil nil (named (not (lcmap.rest.types/string-int? \":a\"))
+          seconds) nil]"]}
+
 ```
 
 ```ruby
