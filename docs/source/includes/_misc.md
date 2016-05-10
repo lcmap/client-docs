@@ -7,7 +7,11 @@
 ```
 
 ```python
-Python: TBD
+from lcmap.client import http
+http.get_user_agent()
+'LCMAP REST Client/0.5.0
+  (Python 2.7.9 (default, Apr  2 2015, 15:33:21) [GCC 4.9.2])
+  (+https://github.com/usgs-eros/lcmap-client-py)'
 ```
 
 ```vb
@@ -15,11 +19,20 @@ Julia: TBD
 ```
 
 ```clojure
-Clojure: TBD
+=> (require '[lcmap.client.http :as http])
+nil
+=> http/user-agent
+"LCMAP REST Client/0.5.0
+  (Clojure 1.7.0; Java 1.7.0_91)
+  (+https://github.com/USGS-EROS/lcmap-client-clj)"
 ```
 
 ```ruby
 Ruby: TBD
+```
+
+```r
+R: TBD
 ```
 
 Each client provides a user agent string that identifies it and provides contextual information (e.g., version and location of source code.

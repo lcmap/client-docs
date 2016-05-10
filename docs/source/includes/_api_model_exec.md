@@ -37,7 +37,7 @@ $ RESULT_PATH=$(curl -s -X POST \
     -H "$LCMAP_VERSION_HDR" -H "$LCMAP_TOKEN_HDR" \
     -d "delay=120" -d "year=2017" \
     "${LCMAP_ENDPOINT}/api/models/sample/os-process" | \
-    jq -r '.result.link.href')
+    jq -r '.body.result.link.href')
 $ echo $RESULT_PATH
 /api/jobs/sample/os-process/6d65033bb2007959174dd284ea8070f4
 ```
@@ -71,11 +71,12 @@ TBD
 
 ```shell
 $ curl -v -H "$LCMAP_VERSION_HDR" -H "$LCMAP_TOKEN_HDR" \
-    "${LCMAP_ENDPOINT}${RESULT_PATH}"
+    "${LCMAP_ENDPOINT}${RESULT_PATH}" \
+    jq .body.result
 ...
 < HTTP/1.1 202 Accepted
 ...
-{"result":"pending"}
+"pending"
 ```
 
 ```python
@@ -100,6 +101,10 @@ TBD
 ```
 
 ```ruby
+TBD
+```
+
+```r
 TBD
 ```
 
@@ -134,6 +139,10 @@ TBD
 TBD
 ```
 
+```r
+TBD
+```
+
 This sample model simply executes an arbitrary binary (in this case, the ``cal`` program) as an OS process on a single core.
 
 <aside class="info">
@@ -148,7 +157,7 @@ Note that subsequent calls with the same parameters will return immediately, sin
 $ RESULT_PATH=$(curl -s -X POST \
     -H "$LCMAP_VERSION_HDR" -H "$LCMAP_TOKEN_HDR" \
     "${LCMAP_ENDPOINT}/api/models/sample/piped-processes" | \
-    jq -r '.result.link.href')
+    jq -r '.body.result.link.href')
 $ echo $RESULT_PATH
 /api/jobs/sample/piped-processes/5d45974eabb4ff1060f6278555d99375
 ```
@@ -173,6 +182,10 @@ TBD
 TBD
 ```
 
+```r
+TBD
+```
+
 > You can also pass parameters:
 
 ```shell
@@ -180,7 +193,7 @@ $ RESULT_PATH=$(curl -s -X POST \
     -H "$LCMAP_VERSION_HDR" -H "$LCMAP_TOKEN_HDR" \
     -d "number=true" -d "count=true" -d "words=true"\
     "${LCMAP_ENDPOINT}/api/models/sample/piped-processes" | \
-    jq -r '.result.link.href')
+    jq -r '.body.result.link.href')
 $ echo $RESULT_PATH
 /api/jobs/sample/piped-processes/5d45974eabb4ff1060f6278555d99375
 ```
@@ -206,15 +219,20 @@ TBD
 TBD
 ```
 
+```r
+TBD
+```
+
 > After the job has finished you can extract the data from the result:
 
 ```shell
 $ curl -v -H "$LCMAP_VERSION_HDR" -H "$LCMAP_TOKEN_HDR" \
-    "${LCMAP_ENDPOINT}${RESULT_PATH}"
+    "${LCMAP_ENDPOINT}${RESULT_PATH}" \
+    jq .body.result
 ...
 < HTTP/1.1 200 OK
 ...
-{"result":"47\n","errors":[],"status":200}}
+"47\n"
 ```
 
 ```python
@@ -231,6 +249,10 @@ TBD
 ```
 
 ```ruby
+TBD
+```
+
+```r
 TBD
 ```
 
@@ -256,7 +278,7 @@ $ RESULT_PATH=$(curl -s -X POST \
     -d "docker-tag=usgs-lcmap/debian-docker-sample-process" \
     -d "year=2017" \
     "${LCMAP_ENDPOINT}/api/models/sample/docker-process" | \
-    jq -r '.result.link.href')
+    jq -r '.body.result.link.href')
 $ echo $RESULT_PATH
 /api/jobs/sample/os-process/439ae2866a39bb5cbbe934583bfef114
 ```
@@ -282,17 +304,20 @@ TBD
 TBD
 ```
 
+```r
+TBD
+```
 
 > After the job has finished you can extract the data from the result:
 
 ```shell
 $ curl -v -H "$LCMAP_VERSION_HDR" -H "$LCMAP_TOKEN_HDR" \
-    "${LCMAP_ENDPOINT}${RESULT_PATH}"
+    "${LCMAP_ENDPOINT}${RESULT_PATH}" \
+    jq .body.result
 ...
 < HTTP/1.1 200 OK
 ...
-{"result":"                             2017\n\n
-  ...}
+"                             2017\n ..."
 ```
 
 ```python
@@ -309,6 +334,10 @@ TBD
 ```
 
 ```ruby
+TBD
+```
+
+```r
 TBD
 ```
 
@@ -380,6 +409,10 @@ TBD
 TBD
 ```
 
+```r
+TBD
+```
+
 
 This sample model executes a Mesos framework which has been tuned to parallelize on both the science model parameters and the required queries to the data warehouse. It is this combination of factors which are used to split work across a configurable number of nodes. Results are combined in the final step of model execution.
 
@@ -426,6 +459,10 @@ TBD
 ```
 
 ```ruby
+TBD
+```
+
+```r
 TBD
 ```
 

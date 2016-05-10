@@ -21,15 +21,20 @@ Julia Status: INITIAL STAGES
 Clojure Status: IN PROGRESS
 ```
 
+```r
+R: INITIAL STAGES
+```
+
 ```ruby
 Ruby Status: NOT STARTED
 ```
 
 We plan to provide (or assist others in providing) the following client libraries for LCMAP:
 
-* Python <span class="status-in-progress">[IN PROGRESS]</span>
+* [Python](https://github.com/USGS-EROS/lcmap-client-py) <span class="status-in-progress">[IN PROGRESS]</span>
+* [Clojure](https://github.com/USGS-EROS/lcmap-client-clj) <span class="status-in-progress">[IN PROGRESS]</span>
+* [R](https://github.com/USGS-EROS/lcmap-client-r) <span class="status-initial-stages">[INITIAL STAGES]</span>
 * Julia <span class="status-initial-stages">[INITIAL STAGES]</span>
-* Clojure <span class="status-in-progress">[IN PROGRESS]</span>
 * Ruby <span class="status-not-started">[NOT STARTED]</span>
 * R <span class="status-initial-stages">[INITIAL STAGES]</span>
 * MATLAB <span class="status-not-started">[NOT STARTED]</span>
@@ -54,6 +59,11 @@ sudo apt-get install curl
 ```python
 # Until the LCMAP Python client library is released in PyPI, use git:
 git clone git@github.com:USGS-EROS/lcmap-client-py.git
+```
+
+```r
+# Until the R client library is released on CRAN, use git:
+git clone git@github.com:USGS-EROS/lcmap-client-r.git
 ```
 
 ```vb

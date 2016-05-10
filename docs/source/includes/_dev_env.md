@@ -34,6 +34,9 @@ Clojure: TBD
 Ruby: TBD
 ```
 
+```r
+R: TBD
+```
 
 If you wish to develop client libraries for the LCMAP system, it may be more convenient to run a local instance of the development environment. The steps required for this are the following:
 

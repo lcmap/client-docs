@@ -4,8 +4,8 @@
 
 
 ```shell
-LCMAP_ENDPOINT=http://localhost:1077
-LCMAP_VERSION_HDR="Accept: application/vnd.usgs.lcmap.v0.5+json"
+$ LCMAP_ENDPOINT=http://localhost:1077
+$ LCMAP_VERSION_HDR="Accept: application/vnd.usgs.lcmap.v0.5+json"
 ```
 
 ```python
@@ -48,6 +48,10 @@ TBD
 TBD
 ```
 
+```r
+TBD
+```
+
 The degree to which client libraries perform an initialization setp varies from language to language. cURL, by virtue of it being a command line utility, is pretty open-ended; we use ``ENV`` variables to "initialize" it. While functional programming languages like Clojure don't typically have the concept of objects, specialized data structures are used, and these need to be set up ahead of time. Client libraries for object-oriented languages such as Python and Ruby do typical object instantiation during this step.
 
 
@@ -56,7 +60,7 @@ The degree to which client libraries perform an initialization setp varies from 
 > Manual authentication will return user data:
 
 ```shell
-LCMAP_USER_DATA=$(curl -s -X POST -H "$LCMAP_VERSION_HDR" \
+$ LCMAP_USER_DATA=$(curl -s -X POST -H "$LCMAP_VERSION_HDR" \
   -d "username=`cat ~/.usgs/username`" \
   -d "password=`cat ~/.usgs/password`" \
   $LCMAP_ENDPOINT/api/auth/login)
@@ -99,6 +103,10 @@ TBD
 TBD
 ```
 
+```r
+TBD
+```
+
 In LCMAP, the process of authentication (for most clients, this is done automatically), returns metadata for the authenticated user. This includes such data as an API token, a user id, a username, the primary email address for the ERS account, and the roles the user has been granted via ERS and LCMAP.
 
 <aside class="info">
@@ -111,8 +119,8 @@ Remember, to authenticate against the LCMAP service you will need to have regist
 > Get the token value:
 
 ```shell
-LCMAP_TOKEN=$(echo $LCMAP_USER_DATA | \
-  jq -r '.result.token')
+$ LCMAP_TOKEN=$(echo $LCMAP_USER_DATA | \
+  jq -r '.body.result.token')
 echo $LCMAP_TOKEN
 3efc6475b5034309af00549a77b7a6e3
 
@@ -140,11 +148,15 @@ TBD
 TBD
 ```
 
+```r
+TBD
+```
+
 > Get the username value:
 
 ```shell
-echo $LCMAP_USER_DATA | \
-  jq -r '.result.username'
+$ echo $LCMAP_USER_DATA | \
+  jq -r '.body.result.username'
 alice
 ```
 
@@ -166,11 +178,15 @@ TBD
 TBD
 ```
 
+```r
+TBD
+```
+
 > Get the roles:
 
 ```shell
-echo $LCMAP_USER_DATA | \
-  jq -r '.result.roles'
+$ echo $LCMAP_USER_DATA | \
+  jq -r '.body.result.roles'
 [
   "RPUBLIC",
   "LANDSAT8CUST"
@@ -195,11 +211,15 @@ TBD
 TBD
 ```
 
+```r
+TBD
+```
+
 > Get the primary email address:
 
 ```shell
-echo $LCMAP_USER_DATA | \
-  jq -r '.result.email'
+$ echo $LCMAP_USER_DATA | \
+  jq -r '.body.result.email'
 alice@usgs.gov
 ```
 
@@ -221,11 +241,15 @@ TBD
 TBD
 ```
 
+```r
+TBD
+```
+
 > Get the user-id value:
 
 ```shell
-echo $LCMAP_USER_DATA | \
-  jq -r '.result."user-id"'
+$ echo $LCMAP_USER_DATA | \
+  jq -r '.body.result."user-id"'
 001010111
 ```
 
@@ -247,6 +271,10 @@ TBD
 TBD
 ```
 
+```r
+TBD
+```
+
 The following user data is made available by the LCMAP clients:
 
 * API token
@@ -260,3 +288,85 @@ The following user data is made available by the LCMAP clients:
 To parse the JSON results from cURL via the command line, the <code>jq</code>  utility is being used. See the <a href="https://stedolan.github.io/jq/">jq site</a> for more details.
 </aside>
 
+
+## Handling Errors
+
+<aside class="danger">
+This section of the the API is under a great deal of develpoment! Expect radical changes, man!
+</aside>
+
+### Data Validation Errors
+
+> In the following command the user supplies a string value for ``delay`` when they should have given an integer:
+
+```shell
+$ curl -v -X POST \
+  -H "$LCMAP_VERSION_HDR" \
+  -H "$LCMAP_TOKEN_HDR" \
+  -d "delay=a" -d "year=2017" \
+  "${LCMAP_ENDPOINT}/api/models/sample/os-process"
+```
+
+```python
+TBD
+```
+
+```vb
+TBD
+```
+
+```clojure
+=> (sample-model/run client :year 2017 :delay "a")
+```
+
+```ruby
+TBD
+```
+
+```r
+TBD
+```
+
+> Which results in the following response being returned to the user:
+
+```shell
+{
+  "status": 400,
+  "headers": {
+    "Content-Type": "application/problem+json"
+  },
+  "body": {
+    "result": null,
+    "errors": [
+      "Input to run-typed-model does not match schema:
+      [nil nil (named (not (lcmap.rest.types/string-int? \"a\")) seconds) nil]"
+    ]
+  }
+}
+```
+
+```python
+TBD
+```
+
+```vb
+TBD
+```
+
+```clojure
+{:result nil
+ :errors ["Input to run-typed-model does not match schema:
+          [nil nil (named (not (lcmap.rest.types/string-int? \":a\"))
+          seconds) nil]"]}
+
+```
+
+```ruby
+TBD
+```
+
+```r
+TBD
+```
+
+User-supplied data is validated against expected data types in the API. If users supply unexpected data types for a given argument, they will receive an error indicating this.
