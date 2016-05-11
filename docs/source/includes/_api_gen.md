@@ -63,7 +63,7 @@ The degree to which client libraries perform an initialization setp varies from 
 $ LCMAP_USER_DATA=$(curl -s -X POST -H "$LCMAP_VERSION_HDR" \
   -d "username=`cat ~/.usgs/username`" \
   -d "password=`cat ~/.usgs/password`" \
-  $LCMAP_ENDPOINT/api/auth/login)
+  $LCMAP_ENDPOINT/api/auth/login | jq -r .body.result)
 ```
 
 ```python
@@ -120,7 +120,7 @@ Remember, to authenticate against the LCMAP service you will need to have regist
 
 ```shell
 $ LCMAP_TOKEN=$(echo $LCMAP_USER_DATA | \
-  jq -r '.body.result.token')
+  jq -r '.token')
 echo $LCMAP_TOKEN
 3efc6475b5034309af00549a77b7a6e3
 
@@ -156,7 +156,7 @@ TBD
 
 ```shell
 $ echo $LCMAP_USER_DATA | \
-  jq -r '.body.result.username'
+  jq -r '.username'
 alice
 ```
 
@@ -186,7 +186,7 @@ TBD
 
 ```shell
 $ echo $LCMAP_USER_DATA | \
-  jq -r '.body.result.roles'
+  jq -r '.roles'
 [
   "RPUBLIC",
   "LANDSAT8CUST"
@@ -219,7 +219,7 @@ TBD
 
 ```shell
 $ echo $LCMAP_USER_DATA | \
-  jq -r '.body.result.email'
+  jq -r '.email'
 alice@usgs.gov
 ```
 
@@ -249,7 +249,7 @@ TBD
 
 ```shell
 $ echo $LCMAP_USER_DATA | \
-  jq -r '.body.result."user-id"'
+  jq -r '."user-id"'
 001010111
 ```
 
