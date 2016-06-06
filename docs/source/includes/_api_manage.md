@@ -31,7 +31,13 @@ TBD
 ```
 
 ```clojure
-TBD
+=> (require '[lcmap.client.system :as system])
+nil
+=> (system/get-resources :return :result)
+{:links ["/api/system/status"
+         "/api/system/json-status"
+         "/api/system/metrics"
+         "/api/system/reference"]}
 ```
 
 ```ruby

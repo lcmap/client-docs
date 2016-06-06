@@ -40,10 +40,11 @@ R: TBD
 
 If you wish to develop client libraries for the LCMAP system, it may be more convenient to run a local instance of the development environment. The steps required for this are the following:
 
-* Install Cassandra, Mesos, and Leiningen
+* Install Cassandra, RabbitMQ, Mesos, and Leiningen
 * Start Cassandra: ``cassandra -f``
 * Set up Cassandra schemas [link TBD]
 * Ingest sample data [link TBD]
+* Set up Rabbit server, channels, and queues [link TBD]
 * Start testing auth service: ``cd lcmap-rest/test/support/auth-server && lein run``
 * Update the ``lcmap-rest/project.clj`` dev environment configuration setting for ``auth-server``
 * Start lcmap-rest suite of services: ``cd lcmap-rest && lein with-profile dev run``

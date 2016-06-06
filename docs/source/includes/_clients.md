@@ -29,13 +29,15 @@ R: INITIAL STAGES
 Ruby Status: NOT STARTED
 ```
 
-We plan to provide the following client libraries for LCMAP:
+We plan to provide (or assist others in providing) the following client libraries for LCMAP:
 
 * [Python](https://github.com/USGS-EROS/lcmap-client-py) <span class="status-in-progress">[IN PROGRESS]</span>
 * [Clojure](https://github.com/USGS-EROS/lcmap-client-clj) <span class="status-in-progress">[IN PROGRESS]</span>
 * [R](https://github.com/USGS-EROS/lcmap-client-r) <span class="status-initial-stages">[INITIAL STAGES]</span>
 * Julia <span class="status-initial-stages">[INITIAL STAGES]</span>
 * Ruby <span class="status-not-started">[NOT STARTED]</span>
+* R <span class="status-initial-stages">[INITIAL STAGES]</span>
+* MATLAB <span class="status-not-started">[NOT STARTED]</span>
 
 
 ## Viewing Per-language Examples
