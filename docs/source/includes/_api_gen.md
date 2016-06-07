@@ -295,6 +295,15 @@ To parse the JSON results from cURL via the command line, the <code>jq</code>  u
 This section of the the API is under a great deal of develpoment! Expect radical changes, man!
 </aside>
 
+In the LCMAP REST API, errors are returned to the user in a format inspired heavily by
+[RFC 7807](https://tools.ietf.org/html/rfc7807). Note in particular the "problem" header that
+is sent to the client.
+
+While the error payload is similar to the RFC, the data structure returned is slightly different.
+LCMAP REST ensures that the developer has easy access to the HTTP status, the response headers,
+and the body of the response. Errors are nested in the body of the response.
+
+
 ### Data Validation Errors
 
 > In the following command the user supplies a string value for ``delay`` when they should have given an integer:
@@ -304,7 +313,7 @@ $ curl -v -X POST \
   -H "$LCMAP_VERSION_HDR" \
   -H "$LCMAP_TOKEN_HDR" \
   -d "delay=a" -d "year=2017" \
-  "${LCMAP_ENDPOINT}/api/models/sample/os-process"
+  "${LCMAP_ENDPOINT}/api/models/sample/os-process" | jq .
 ```
 
 ```python
@@ -338,8 +347,17 @@ TBD
   "body": {
     "result": null,
     "errors": [
-      "Input to run-typed-model does not match schema:
-      [nil nil (named (not (lcmap.rest.types/string-int? \"a\")) seconds) nil]"
+      {
+        "title": "Invalid input data type",
+        "category": "gen",
+        "type": "/api/system/reference/error-type/gen",
+        "detail": {
+          "msg": "Input to run-model does not match schema:
+                  [nil (named (not (lcmap.rest.types/string-int? \"a\")) seconds) nil]",
+          "type": "Type-Error"
+        },
+        "instance": "<URL at error>"
+      }
     ]
   }
 }
