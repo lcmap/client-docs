@@ -66,6 +66,65 @@ To retrieve tiles, specify a point in projection coordinate system, the univeral
 | LANDSAT_7        | ETM       | toa_band[1..7], toa_qa, sr_band[1..7], sr_cloud_qa, sr_cloud_shadow_qa, sr_snow_qa, sr_adjacent_cloud_qa, cfmask |
 | LANDSAT_8        | OLI_TIRS  | toa_band[1..7], toa_qa, sr_band[1..7], sr_cloud_qa, sr_cloud_shadow_qa, sr_snow_qa, sr_adjacent_cloud_qa, cfmask |
 
+## Tile Specifications
+
+```python
+client.data.specs("LANDSAT_8/OLI_TIRS/sr_band1")
+```
+
+```shell
+BAND='LANDSAT_8/OLI_TIRS/sr_band1'
+SPECS=$(curl -s \
+  -H "$LCMAP_ACCEPT_HDR" \
+  -H "$LCMAP_TOKEN_HDR" \
+  "http://localhost:1077/api/data/specs?band=$BAND")
+```
+
+```vb
+TBD
+```
+
+```clojure
+TBD
+```
+
+```ruby
+TBD
+```
+
+```r
+TBD
+```
+
+## Scene Metadata
+
+```python
+client.data.scene("LC80460272013104LGN01")
+```
+
+```shell
+ID="LC80460272013104LGN01"
+SCENE=$(curl -s \
+  -H "$LCMAP_ACCEPT_HDR" \
+  -H "$LCMAP_TOKEN_HDR" \
+  "http://localhost:1077/api/data/scenes/$ID")
+```
+
+```vb
+TBD
+```
+
+```clojure
+TBD
+```
+
+```ruby
+TBD
+```
+
+```r
+TBD
+```
 
 ### Future Improvements
 
