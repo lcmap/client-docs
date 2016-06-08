@@ -126,6 +126,43 @@ TBD
 TBD
 ```
 
+## NDVI Model Results
+
+```python
+x, y = -1909498+(128*30), 2978512
+t1, t2 = "2013-01-01", "2014-01-01"
+_, ndvi = client.data.tiles("LCMAP/SEE/NDVI", x, y, t1, t2)
+```
+
+```shell
+POINT="-1909498,2978512"
+TIME="2013-01-01/2014-01-01"
+BAND="LCMAP/SEE/NDVI"
+
+TILES=$(curl -s \
+  -H "$LCMAP_ACCEPT_HDR" \
+  -H "$LCMAP_TOKEN_HDR" \
+  "http://localhost:1077/api/data/tiles?band=$BAND&point=$POINT&time=$TIME")
+
+echo $TILES
+```
+
+```vb
+TBD
+```
+
+```clojure
+TBD
+```
+
+```ruby
+TBD
+```
+
+```r
+TBD
+```
+
 ### Future Improvements
 
 * Provide a list of available bands of data and support queries by mission, sensor, and spectral band name.

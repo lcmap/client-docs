@@ -421,6 +421,37 @@ Note that subsequent calls with the same parameters will return immediately, sin
 </aside>
 
 
+## &bull; NDVI
+
+```shell
+X="-1909498"
+Y="2978512"
+T1="2013-01-01"
+T2="2014-01-01"
+
+JOB=$(curl -s \
+  -H "$LCMAP_ACCEPT_HDR" \
+  -H "$LCMAP_TOKEN_HDR" \
+  -X POST "http://localhost:1077/api/models/ndvi?x=$X&y=$Y&t1=$T1&t2=$T2")
+
+echo $JOB
+```
+
+```python
+```
+
+```vb
+TBD
+```
+
+```clojure
+TBD
+```
+
+```ruby
+TBD
+```
+
 ## CONTINUOUS CHANGE DETECTION AND CLASSIFICATION
 
 Continuous Change Detection and Classification (CCDC) is an algorithm for analyzing land cover using Landsat data. It is capable of detecting many kinds of land cover change continuously as new images are collected and providing land cover maps for any given time.
