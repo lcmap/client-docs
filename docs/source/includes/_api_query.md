@@ -16,6 +16,12 @@ These are made available for purposes of data reduction, analysis, and interpret
 
 These are provided in order to enable independent reconstruction of the dataset.
 
+Tiles may be retrieved in different formats: as JSON, GeoTIFF, and NetCDF. This is controlled by setting the HTTP request Accept header to:
+
+* application/vnd.usgs.lcmap.v0.5+json
+* application/vnd.usgs.lcmap.v0.5+geotiff
+* application/vnd.usgs.lcmap.v0.5+netcdf
+
 ## Landsat
 
 ```python
@@ -29,6 +35,7 @@ spec, tiles = client.data.tiles(ubid, x, y, t1, t2)
 ```
 
 ```shell
+LCMAP_ACCEPT_HDR="Accept: application/vnd.usgs.lcmap.v0.5+json"
 POINT='-1850865,2956785'
 BAND='LANDSAT_8/OLI_TIRS/sr_band1'
 TIME='2013-01-01/2015-01-01'
