@@ -63,7 +63,7 @@ The degree to which client libraries perform an initialization setp varies from 
 $ LCMAP_USER_DATA=$(curl -s -X POST -H "$LCMAP_VERSION_HDR" \
   -d "username=`cat ~/.usgs/username`" \
   -d "password=`cat ~/.usgs/password`" \
-  $LCMAP_ENDPOINT/api/auth/login | jq -r .body.result)
+  $LCMAP_ENDPOINT/api/auth/login | jq -r .result)
 ```
 
 ```python
