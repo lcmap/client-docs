@@ -5,7 +5,7 @@
 
 ```shell
 $ LCMAP_ENDPOINT=http://localhost:1077
-$ LCMAP_VERSION_HDR="Accept: application/vnd.usgs.lcmap.v0.5+json"
+$ LCMAP_VERSION_HDR="Accept: application/vnd.usgs.lcmap.v1.0+json"
 ```
 
 ```python
