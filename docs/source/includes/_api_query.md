@@ -18,9 +18,9 @@ These are provided in order to enable independent reconstruction of the dataset.
 
 Tiles may be retrieved in different formats: as JSON, GeoTIFF, and NetCDF. This is controlled by setting the HTTP request Accept header to:
 
-* application/vnd.usgs.lcmap.v0.5+json
-* application/vnd.usgs.lcmap.v0.5+geotiff
-* application/vnd.usgs.lcmap.v0.5+netcdf
+* application/vnd.usgs.lcmap.v1.0+json
+* application/vnd.usgs.lcmap.v1.0+geotiff
+* application/vnd.usgs.lcmap.v1.0+netcdf
 
 ## Landsat
 
